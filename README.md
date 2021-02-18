@@ -27,34 +27,34 @@ Getting Started.(steps to use the Framework)
 
    User just need to change/write a single word inside [web.xml](web.xml) and that was the param-value against param-name 'SERVICE_PACKAGE_PREFIX' i.e. by default there was "bobby", user have to change it.
 
-  User have to write the folder-name/folder-name-starts-with there in which services which are using this Framework exists.
+   User have to write the folder-name/folder-name-starts-with there in which services which are using this Framework exists.
 
-  Note : the folder-name mention here should exists inside tomcat9/Webapps/"project name"/WEB-INF/classes/.
+   Note : the folder-name mention here should exists inside tomcat9/Webapps/"project name"/WEB-INF/classes/.
 
-  ```
-  <init-param>
-  <param-name>SERVICE_PACKAGE_PREFIX</param-name>
-  <param-value>bobby</param-value>
-  </init-param>
-  ```
-  the above example show how to write folder-name in which services classes are located (services classes are classes using the framework to create web service for requests).
+   ```
+   <init-param>
+   <param-name>SERVICE_PACKAGE_PREFIX</param-name>
+   <param-value>bobby</param-value>
+   </init-param>
+   ```
+   the above example show how to write folder-name in which services classes are located (services classes are classes using the framework to create web service for requests).
 
-  User also have to change a single word inside [web.xml](web.xml), instead of 'schoolService' user have to write his/her application entity name there.
+   User also have to change a single word inside [web.xml](web.xml), instead of 'schoolService' user have to write his/her application entity name there.
 
-  ```
-  <servlet>
-  <servlet-name>TMWebRock</servlet-name>
-  <servlet-class>com.thinking.machines.webrock.TMWebRock</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  <servlet-name>TMWebRock</servlet-name>
-  <url-pattern>/schoolService/*</url-pattern>
-  </servlet-mapping>
-  ```
+   ```
+   <servlet>
+   <servlet-name>TMWebRock</servlet-name>
+   <servlet-class>com.thinking.machines.webrock.TMWebRock</servlet-class>
+   </servlet>
+   <servlet-mapping>
+   <servlet-name>TMWebRock</servlet-name>
+   <url-pattern>/schoolService/*</url-pattern>
+   </servlet-mapping>
+   ```
 
-  In above piece of code user have to make change only in line number 7. i.e. replace 'schoolService' with other word.
-
-  Now you can forget about [web.xml](web.xml) as you dont have to change or configure it again.
+   In above piece of code user have to make change only in line number 7. i.e. replace 'schoolService' with other word.
+   
+   Now you can forget about [web.xml](web.xml) as you dont have to change or configure it again.
 
 4) Now copy [webServiceFramework.jar](webServiceFramework.jar) to tomcat9/Webapps/"Project Name"/WEB-INF/lib/.
 Tomcat search for servlet classes in classes folder or lib folder.
