@@ -31,10 +31,26 @@ User have to write the folder-name/folder-name-starts-with there in which servic
 
 Note : the folder-name mention here should exists inside tomcat9/Webapps/"project name"/WEB-INF/classes/.
 
-Now you can forget about web.Xml as you dont have to change or configure it again.
 ```
 <init-param>
 <param-name>SERVICE_PACKAGE_PREFIX</param-name>
 <param-value>bobby</param-value>
 </init-param>
 ```
+the above example show how to write folder-name in which services classes are located (services classes are classes using the framework to create web service for requests).
+
+User also have to change a single word inside [web.xml](web.xml), instead of 'schoolService' user have to write his/her application entity name there.
+
+```
+<servlet>
+<servlet-name>TMWebRock</servlet-name>
+<servlet-class>com.thinking.machines.webrock.TMWebRock</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>TMWebRock</servlet-name>
+<url-pattern>/schoolService/*</url-pattern>
+</servlet-mapping>
+```
+
+In above piece of code user have to make change only in line number 7. i.e. replace 'schoolService' with other word.
+Now you can forget about [web.xml](web.xml) as you dont have to change or configure it again.
