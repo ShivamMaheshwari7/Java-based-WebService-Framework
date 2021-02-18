@@ -59,3 +59,7 @@ Getting Started.(steps to use the Framework)
 4) Now copy [webServiceFramework.jar](webServiceFramework.jar) to tomcat9/Webapps/"Project Name"/WEB-INF/lib/.
 Tomcat search for servlet classes in classes folder or lib folder.
 
+5) Now copy all files inside [Dependencies](Dependencies) folder and paste them inside tomcat9/lib/.
+these are all the files you will ever need to create a web service. Our framework is Dependent on some of the these files. some of the jar file may already be present there you can skip those files.
+
+
