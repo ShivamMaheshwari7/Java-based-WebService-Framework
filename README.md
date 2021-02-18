@@ -53,4 +53,5 @@ User also have to change a single word inside [web.xml](web.xml), instead of 'sc
 ```
 
 In above piece of code user have to make change only in line number 7. i.e. replace 'schoolService' with other word.
+
 Now you can forget about [web.xml](web.xml) as you dont have to change or configure it again.
