@@ -56,5 +56,6 @@ In above piece of code user have to make change only in line number 7. i.e. repl
 
 Now you can forget about [web.xml](web.xml) as you dont have to change or configure it again.
 
+
 4) Now copy [webServiceFramework.jar](webServiceFramework.jar) to tomcat9/Webapps/"Project Name"/WEB-INF/lib/.
 Tomcat search for servlet classes in classes folder or lib folder.
