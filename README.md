@@ -24,7 +24,6 @@ Getting Started.(steps to use the Framework)
 2)Extract the zip File.
 
 3)Copy/cut web.xml to tomcat9/Webapps/"Project Name"/WEB-INF/.
-
 User just need to change/write a single word inside web.xml and that was the param-value against param-name 'SERVICE_PACKAGE_PREFIX' i.e. by default there was "bobby", user have to change it.
 
 User have to write the folder-name/folder-name-starts-with there in which services which are using this Framework exists.
