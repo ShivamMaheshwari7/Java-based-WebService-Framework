@@ -67,7 +67,7 @@ these are all the files you will ever need to create a web service. Our framewor
 Tutorials and reference documentation:-
 ===========================
 
-user can create Web service by using these annotations on class and Methods. User dont have to worry about how these webservices will run when request arrives. User can request Data, HttpServletRequest and httpServletResponse from framework.
+user can create Web service by using these annotations on class and Methods. User dont have to worry about how these webservices will run when request arrives. User can request Data, HttpServletRequest and HttpServletResponse from framework.
 
 Annotations User can use are:
 ---------------------
