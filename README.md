@@ -88,7 +88,28 @@ public void view()
 ```
 user can access this service by sending request to "User's entity name"/employee/view.
 
-2) b
+2) @RequestParameter("username").
+
+RequestParameter annotation can only be applied on Parameter. User can use the following annotation to request data from framework which arrives as web request.
+framework finds the value of the annotation and search for data with given name in request Bag and if found provide this requestded data to user without user having to worry about conversions 
+Example:-
+```
+import com.thinking.machines.webrock.annotations.*;
+@Path("/employee")
+public class Employee
+{
+@Path("/add")
+public String add(@RequestParameter("username") String name,@RequestParameter("gender") String gender,@RequestParameter("indian") boolean indian)
+{
+System.out.println(name+"----"+gender+"-----"+indian);
+return "Add model service Used";
+}
+}
+```
+Example url to access add service
+http://localhost:8080/"user's application context name"/"user's entity name"/employee/add?username=Shivam+Maheshwari&gender=male&indian=true
+To access Boolean data client user must send data as True or TRUE or true and same goes for it counterpart.
+
 3) a
 4) a
 5) a
