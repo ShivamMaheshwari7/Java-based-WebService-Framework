@@ -71,3 +71,32 @@ user can create Web service by using these annotations on class and Methods. Use
 
 Annotations User can use are:
 ---------------------
+1) @Path("/employee")
+
+Path annotation can be applied to class and method.value of path should starts with front Slash followed by path.
+Example:-
+``` markdow
+import com.thinking.machines.webrock.annotations.*;
+@Path("/employee")
+public class Employee
+{
+@Path("/view")
+public void view()
+{
+	System.out.println("View Service");
+}}
+```
+user can access this service by sending request to "User's entity name"/employee/view.
+
+2) b
+3) a
+4) a
+5) a
+6) a
+7) a
+8) a
+9) a
+10) a
+11) a
+12) a
+13) a
