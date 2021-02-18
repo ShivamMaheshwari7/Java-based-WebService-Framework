@@ -6,24 +6,24 @@ You can use this framework to create backend/serverside services for web request
 Benifits of using this FrameWork:-
 ===========================
 
-1)Absolutely no requirement for XML configuration.
+1) Absolutely no requirement for XML configuration.
 
-2)No need to write servlets Classes for every new web Request.
+2) No need to write servlets Classes for every new web Request.
 
-3)User dont have to worry about get/post request and how to Handle them.
+3) User dont have to worry about get/post request and how to Handle them.
 
-4)User dont have to worry about how to handle multipart requests and how to parse them and process them.
+4) User dont have to worry about how to handle multipart requests and how to parse them and process them.
 
-5)User can use ServicesDoc tool in framework to find list of services inside application.
+5) User can use ServicesDoc tool in framework to find list of services inside application.
 
 Getting Started.(steps to use the Framework)
 ===========================
 
-1)Download this git repository.
+1) Download this git repository.
 
-2)Extract the zip File.
+2) Extract the zip File.
 
-3)Copy/cut [web.xml](web.xml) to tomcat9/Webapps/"Project Name"/WEB-INF/.
+3) Copy/cut [web.xml](web.xml) to tomcat9/Webapps/"Project Name"/WEB-INF/.
 
 User just need to change/write a single word inside [web.xml](web.xml) and that was the param-value against param-name 'SERVICE_PACKAGE_PREFIX' i.e. by default there was "bobby", user have to change it.
 
@@ -55,3 +55,6 @@ User also have to change a single word inside [web.xml](web.xml), instead of 'sc
 In above piece of code user have to make change only in line number 7. i.e. replace 'schoolService' with other word.
 
 Now you can forget about [web.xml](web.xml) as you dont have to change or configure it again.
+
+4) Now copy [webServiceFramework.jar](webServiceFramework.jar) to tomcat9/Webapps/"Project Name"/WEB-INF/lib/.
+Tomcat search for servlet classes in classes folder or lib folder.
