@@ -74,41 +74,41 @@ Annotations User can use are:
 1) @Path("/employee")
 
 	Path annotation can be applied to class and method.value of path should starts with front Slash followed by path.
-Example:-
-``` markdow
-import com.thinking.machines.webrock.annotations.*;
-@Path("/employee")
-public class Employee
-{
-@Path("/view")
-public void view()
-{
-	System.out.println("View Service");
-}}
-```
-user can access this service by sending request to "User's entity name"/employee/view.
+	Example:-
+	``` markdow
+	import com.thinking.machines.webrock.annotations.*;
+	@Path("/employee")
+	public class Employee
+	{
+	@Path("/view")
+	public void view()
+	{
+		System.out.println("View Service");
+	}}
+	```
+	user can access this service by sending request to "User's entity name"/employee/view.
 
 2) @RequestParameter("username").
 
-RequestParameter annotation can only be applied on Parameter. User can use the following annotation to request data from framework which arrives as web request.
+	RequestParameter annotation can only be applied on Parameter. User can use the following annotation to request data from framework which arrives as web request.
 framework finds the value of the annotation and search for data with given name in request Bag and if found provide this requested data to user without user having to worry about conversions. 
-Example:-
-```
-import com.thinking.machines.webrock.annotations.*;
-@Path("/employee")
-public class Employee
-{
-@Path("/add")
-public String add(@RequestParameter("username") String name,@RequestParameter("gender") String gender,@RequestParameter("indian") boolean indian)
-{
-System.out.println(name+"----"+gender+"-----"+indian);
-return "Add model service Used";
-}
-}
-```
-Example url to access add service
-http://localhost:8080/"user's-application-context-name"/"user's-entity-name"/employee/add?username=Shivam+Maheshwari&gender=male&indian=true
-To access Boolean data client user must send data as True or TRUE or true and same goes for it counterpart.
+	Example:-
+	```
+	import com.thinking.machines.webrock.annotations.*;
+	@Path("/employee")
+	public class Employee
+	{
+	@Path("/add")
+	public String add(@RequestParameter("username") String name,@RequestParameter("gender") String gender,@RequestParameter("indian") boolean indian)
+	{
+	System.out.println(name+"----"+gender+"-----"+indian);
+	return "Add model service Used";
+	}
+	}
+	```
+	Example url to access add service
+	http://localhost:8080/"user's-application-context-name"/"user's-entity-name"/employee/add?username=Shivam+Maheshwari&gender=male&indian=true
+	To access Boolean data client user must send data as True or TRUE or true and same goes for it counterpart.
 
 3) @SecuredAccess(checkPost="com.thinking.machines.secured.Security",guard="securityGuardOne")
 
