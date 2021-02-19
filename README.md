@@ -73,7 +73,7 @@ Annotations User can use are:
 ---------------------
 1) @Path("/employee")
 
-Path annotation can be applied to class and method.value of path should starts with front Slash followed by path.
+	Path annotation can be applied to class and method.value of path should starts with front Slash followed by path.
 Example:-
 ``` markdow
 import com.thinking.machines.webrock.annotations.*;
