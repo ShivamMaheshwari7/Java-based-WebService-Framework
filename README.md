@@ -111,6 +111,26 @@ framework finds the value of the annotation and search for data with given name 
 	To access Boolean data client user must send data as True or TRUE or true and same goes for it counterpart.
 
 3) @SecuredAccess(checkPost="com.thinking.machines.secured.Security",guard="securityGuardOne")
+	
+	By using this annotation user dont have to write verification code for every service that need to be secured,user can just apply this annotation to all the services that are needed to be secured from unidentified access. SecuredAccess annotation can only be applied on Method.
+	=> checkPost = full classname(with package) to your verification class.
+	=> guard = method name within user's verification class.
+	Example:-
+	```
+	import com.thinking.machines.webrock.annotations.*;
+	@Path("/employee")
+	public class Employee
+	{
+	@Path("/get")
+	@SecuredAccess(checkPost="com.thinking.machines.secured.Security",guard="securityGuardOne")
+	public String get()
+	{
+	System.out.println("Get method got invoked and returned a String");
+	return "School Getted";
+	}
+	}
+	```
+	value of checkPost should be a full name to the actual class that verify user based on the users details and value of guard should be method name inside that verification class.
 
 4) @Forward("/employee/view")
 
