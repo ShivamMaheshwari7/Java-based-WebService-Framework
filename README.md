@@ -129,7 +129,7 @@ framework finds the value of the annotation and search for data with given name 
 	public String get()
 	{
 	System.out.println("Get method got invoked and returned a String");
-	return "School Getted";
+	return "Employee Getted";
 	}
 	}
 	```
