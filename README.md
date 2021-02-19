@@ -113,8 +113,11 @@ framework finds the value of the annotation and search for data with given name 
 3) @SecuredAccess(checkPost="com.thinking.machines.secured.Security",guard="securityGuardOne")
 	
 	By using this annotation user dont have to write verification code for every service that need to be secured,user can just apply this annotation to all the services that are needed to be secured from unidentified access. SecuredAccess annotation can only be applied on Method.
+	
 	=> checkPost = full classname(with package) to your verification class.
+	
 	=> guard = method name within user's verification class.
+	
 	Example:-
 	```
 	import com.thinking.machines.webrock.annotations.*;
