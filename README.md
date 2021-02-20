@@ -273,8 +273,38 @@ framework finds the value of the annotation and search for data with given name 
 
 	Refer above point number (7).
 
-11) @InjectRequestParameter("username")
+11) @InjectRequestParameter("gender")
+
+	This annotation is same as RequestParameter annotation but unlike it applied on class properties. It simply work similar as RequestParameter but benefit of using this annotation was that if something is coming inside query string and more than one service required that then instead of using RequestParameter annotation on parameters of both services user can use InjectRequestParameter on that place.
+	
+	Example :-
+	```
+	import com.thinking.machines.webrock.annotations.*;
+	@Path("/employee")
+	public class Employee
+	{
+	@InjectRequestParameter("gender")
+	private String gender;
+	@Path("/add")
+	public String add(@RequestParameter("username") String name,@RequestParameter("indian") boolean indian)
+	{
+	System.out.println(name+"----"+this.gender+"-----"+indian);
+	return "Add model service Used";
+	}
+	@Path("/view")
+	public void view()
+	{
+	System.out.println("View Service and Gender is - "+this.gender);
+	}
+	}
+	```
 
 12) @OnStartup(priority=1)
+
+	This annotation can only be applied on method/service. User uses this annotation if user wants that one or more service got called when server get started then he/she must apply this annotation over those services and user have to mention priority of calling this services, lesser priority number will called first.
+	
+	Example :-
+	```
+	```
 
 13) @AutoWired(name="username")
