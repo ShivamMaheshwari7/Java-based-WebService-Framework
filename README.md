@@ -305,6 +305,47 @@ framework finds the value of the annotation and search for data with given name 
 	
 	Example :-
 	```
+	import com.thinking.machines.webrock.annotations.*;
+	@Path("/employee")
+	public class Employee
+	{
+	@Path("/get")
+	@OnStartup(priority=1)
+	public String get()
+	{
+	System.out.println("Get method got invoked and returned a String");
+	return "Employee Getted";
+	}
+	}
 	```
 
 13) @AutoWired(name="username")
+
+	AutoWired annotation can only be applied on properties of service class. 
+	User apply these annotation when he/she wants that the value against 'name' property of AutoWired annotation should setted to that property on which annotation applied and value will be extracted from scopes (request scope > session scope > application scope). Setter method should be present for that property so that value can be setted.
+	
+	i.e. order of finding the value against value of name field of annotation was - Request scope -> Session scope -> Application scope.
+	
+	Example :-
+	```
+	import com.thinking.machines.webrock.annotations.*;
+	@Path("/employee")
+	public class Employee
+	{
+	@AutoWired(name="username")
+	private String name;
+	public void setName(String name)
+	{
+	this.name=name;
+	}
+	@Path("/get")
+	@OnStartup(priority=1)
+	public String get()
+	{
+	System.out.println("Get method got invoked and returned a String");
+	System.out.println(this.name);
+	return "Employee Getted";
+	}
+	}
+	```
+	value against 'username' will be founded and setted to name property of employee class.
