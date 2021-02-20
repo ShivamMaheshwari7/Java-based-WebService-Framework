@@ -349,3 +349,20 @@ framework finds the value of the annotation and search for data with given name 
 	}
 	```
 	value against 'username' will be founded and setted to name property of employee class.
+14) If user send raw data in post Request user can just  use it simply as:-
+	```
+	@Path("/add")
+	public Student add(Student s)
+	{
+	return s;
+	}
+	```
+	Framework will automaically find the type of patameter and parse the raw data into Studenrt object and pass it as argument when invoking this service method.
+	
+	
+After Creating all the services user can use DocTool of the Framework to create a file services.pdf, DocTool will analyse all the services and create these pdf . services.pdf contains all the details of the unique services . 
+
+java -classpath "path to Frame work jar";"path to tomcat lib for dependencies";. com.thinking.machines.webrock.ServicesDoc "path to service classes folder".
+
+services.pdf will be created in current working directory, i.e. that directory in which we execute above statement.
+
