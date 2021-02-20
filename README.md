@@ -137,11 +137,45 @@ framework finds the value of the annotation and search for data with given name 
 
 4) @Forward("/employee/view")
 	
-	
+	Using this annotation user can forward request to another web service or to some jsp file below example show how to use forward annotaton to forward request to other service "/employee/view",you can also forward to some JSP also.by giving JSP file name as value of forward annotation. Forward annotation can only be applied on Method.
 
 5) @Get
+	
+	Using this annotation user can declare that only GET type request allowed for this service. Get annotation can be applied to both class and method.
+	If applied on class then for all services inside that class GET type request is allowed. and we can apply for particular method also.
+	
+	Similarly Post annotation can be used for allowing POST type request. and it can also applied on both class and method.
+	
+	If neither Get and Post annotation applied on method then both GET and POST type requests allowed. and user can apply both Get and Post annotation on method to allow both type request.
 
 6) @Post
+	
+	Refer above point.
+	
+	Example :-
+	```
+	import com.thinking.machines.webrock.annotations.*;
+	@Path("/employee")
+	@Get
+	public class Employee
+	{
+	@Path("/add")
+	@Get
+	@Forward("/employee/view")
+	public String add(@RequestParameter("username") String name,@RequestParameter("gender") String gender,@RequestParameter("indian") boolean indian)
+	{
+	System.out.println(name+"----"+gender+"-----"+indian);
+	return "Add model service Used";
+	}
+	
+	@Path("/view")
+	@Post
+	public void view()
+	{
+	System.out.println("View Service");
+	}
+	}
+	```
 
 7) @InjectApplicationScope
 
