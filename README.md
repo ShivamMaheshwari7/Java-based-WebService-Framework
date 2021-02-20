@@ -178,12 +178,100 @@ framework finds the value of the annotation and search for data with given name 
 	```
 
 7) @InjectApplicationScope
-
+	
+	Framework provides four classes, names are - 
+	
+	RequestScope, SessionScope, ApplicationScope, ApplicationDirectory inside package com.thinking.machines.webrock.scopes, i.e. if user want to use these classes user have to import/write - "import com.thinking.machines.webrock.scopes.*;" on top.
+	
+	Basically user uses these classes whenever user require any kind of scopes/application-directory inside any service or class.
+	
+	These 3 classes which represent scopes have only 2 functionalities, they are - setAttribute and getAttribute.
+	
+	public void setAttribute(String,Object);   -   for setting an attribute against name inside any scope.
+	
+	public Object getAttribute(String);   -   for getting attribute against name from any scope.
+	
+	and class with name ApplicationDirectory has only one functionality and it was - getDirectory.
+	
+	public File getDirectory();   -   for getting application directory.
+	
+	User just need to write/take parameter of these above 4 classes inside any service and our framework will provide that scope/directory whatever is demanded by user.
+	
+	Example :-
+	```
+	import com.thinking.machines.webrock.annotations.*;
+	import com.thinking.machines.webrock.scopes.*;
+	@Path("/employee")
+	public class Employee
+	{
+	@Path("/view")
+	public void view(RequestScope rs, SessionScope ss, ApplicationScope as, ApplicationDirectory ad)
+	{
+	System.out.println("View Service");
+	rs.setAttribute("age",23);
+	ss.setAttribute("name","Shivam Maheshwari");
+	as.setAttribute("gender","Male");
+	System.out.println(rs.getAttribute("age"));
+	System.out.println(ss.getAttribute("name"));
+	System.out.println(as.getAttribute("gender"));
+	System.out.println(ad.getDirectory().getAbsolutePath());
+	}
+	}
+	```
+	
+	This annotation(InjectApplicationScope) and next 3 are only applied on class. User applied those annotations if user require any scope or directory.
+	
+	If user uses any of these 4 annotations than user must have to write its respective setter for accessing scope/directory.
+	
+	Example :-
+	```
+	import com.thinking.machines.webrock.annotations.*;
+	import com.thinking.machines.webrock.scopes.*;
+	@Path("/employee")
+	@InjectSessionScope
+	@InjectApplicationDirectory
+	public class Employee
+	{
+	private SessionScope sessionScope;
+	private ApplicationDirectory applicationDirectory;
+	public void setSessionScope(SessionScope sessionScope)
+	{
+	this.sessionScope=sessionScope;
+	}
+	private void setApplicationDirectory(ApplicationDirectory applicationDirectory)
+	{
+	this.applicationDirectory=applicationDirectory;
+	}
+	@Path("/view")
+	public void view(RequestScope rs, SessionScope ss, ApplicationScope as, ApplicationDirectory ad)
+	{
+	System.out.println("View Service");
+	rs.setAttribute("age",23);
+	ss.setAttribute("name","Shivam Maheshwari");
+	as.setAttribute("gender","Male");
+	System.out.println(rs.getAttribute("age"));
+	System.out.println(ss.getAttribute("name"));
+	System.out.println(as.getAttribute("gender"));
+	System.out.println(ad.getDirectory().getAbsolutePath());
+	
+	System.out.println(this.applicationDirectory.getDirectory().getAbsolutePath());
+	System.out.println(this.sessionScope.getAttribute("name"));
+	}
+	}
+	```
+	Above example shows how to get session scope and application directory. Similarly user can get application scope and request scope.
+	
 8) @InjectSessionScope
+
+	Refer above point number (7).
 
 9) @InjectRequestScope
 
+	Refer above point number (7).
+
 10) @InjectApplicationDirectory
+
+	Refer above point number (7).
 
 11) @InjectRequestParameter("username")
 
